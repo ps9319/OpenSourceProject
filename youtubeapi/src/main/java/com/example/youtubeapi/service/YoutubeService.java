@@ -18,10 +18,7 @@ import com.google.api.services.youtube.model.*;
 
 import org.json.simple.parser.JSONParser;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class YoutubeService {
@@ -62,7 +59,7 @@ public class YoutubeService {
         VideoListResponse response = request.setKey(DEVELOPER_KEY)
                 .setChart("mostPopular")
                 .setRegionCode("KR")
-                .setMaxResults(1L)
+                .setMaxResults(50L)
                 .execute();
 
 
@@ -71,9 +68,12 @@ public class YoutubeService {
 //        JSONParser parser = new JSONParser();
 //        JSONArray jsonArray = (JSONArray) parser.parse(response);
 
-        var tmp = response.get("items");
-        ArrayList<Video> tmp1 = (ArrayList<Video>) response.get("items");
-        VideoSnippet tmp2 = (VideoSnippet) tmp1.get(0).get("snippet");
-        System.out.println(tmp2.getChannelTitle());
+        ArrayList<Video> videos = (ArrayList<Video>) response.get("items");
+        Iterator<Video> it = videos.iterator();
+        while (it.hasNext()) {
+            VideoSnippet videoInfo = (VideoSnippet)it.next().get("snippet");
+            String videoTitle = videoInfo.getTitle();
+            System.out.println(videoTitle);
+        }
     }
 }
