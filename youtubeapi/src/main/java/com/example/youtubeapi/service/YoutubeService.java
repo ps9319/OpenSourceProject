@@ -14,6 +14,7 @@ import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import com.google.api.services.youtube.model.*;
 
 import org.json.simple.parser.JSONParser;
 
@@ -70,6 +71,9 @@ public class YoutubeService {
 //        JSONParser parser = new JSONParser();
 //        JSONArray jsonArray = (JSONArray) parser.parse(response);
 
-        System.out.println(response);
+        var tmp = response.get("items");
+        ArrayList<Video> tmp1 = (ArrayList<Video>) response.get("items");
+        VideoSnippet tmp2 = (VideoSnippet) tmp1.get(0).get("snippet");
+        System.out.println(tmp2.getChannelTitle());
     }
 }
