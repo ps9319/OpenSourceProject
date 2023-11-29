@@ -3,20 +3,15 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.JsonParser;
 import com.google.api.client.json.jackson2.JacksonFactory;
 
 import com.google.api.services.youtube.YouTube;
 import com.google.api.services.youtube.model.Video;
 import com.google.api.services.youtube.model.VideoListResponse;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import com.google.api.services.youtube.model.*;
-
-import org.json.simple.parser.JSONParser;
 
 import java.util.*;
 
@@ -62,18 +57,14 @@ public class YoutubeService {
                 .setMaxResults(50L)
                 .execute();
 
-
-        //
-//        StringBuilder sb = new StringBuilder();
-//        JSONParser parser = new JSONParser();
-//        JSONArray jsonArray = (JSONArray) parser.parse(response);
-
         ArrayList<Video> videos = (ArrayList<Video>) response.get("items");
         Iterator<Video> it = videos.iterator();
+        int count = 1;
         while (it.hasNext()) {
             VideoSnippet videoInfo = (VideoSnippet)it.next().get("snippet");
             String videoTitle = videoInfo.getTitle();
-            System.out.println(videoTitle);
+            System.out.println(count + " = " + videoTitle);
+            count++;
         }
     }
 }
