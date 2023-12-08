@@ -15,7 +15,7 @@ import com.google.api.services.youtube.model.*;
 
 import java.util.*;
 
-@Service
+//@Service
 public class YoutubeService {
 
     // You need to set this value for your code to compile.
@@ -44,7 +44,18 @@ public class YoutubeService {
      * @throws GeneralSecurityException, IOException, GoogleJsonResponseException
      */
 
-
+    public static void getAllVideo()
+            throws GeneralSecurityException, IOException, GoogleJsonResponseException{
+        YouTube youtubeService = getService();
+        // Define and execute the API request
+        YouTube.Videos.List request = youtubeService.videos()
+                .list("snippet");
+        VideoListResponse response = request.setKey(DEVELOPER_KEY)
+                .setChart("mostPopular")
+                .setRegionCode("KR")
+                .setMaxResults(50L)
+                .execute();
+    }
     public static void main(String[] args)
             throws GeneralSecurityException, IOException, GoogleJsonResponseException {
         YouTube youtubeService = getService();
