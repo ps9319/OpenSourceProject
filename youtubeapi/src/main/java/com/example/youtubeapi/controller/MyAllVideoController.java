@@ -1,5 +1,6 @@
 package com.example.youtubeapi.controller;
 
+import com.example.youtubeapi.service.MyAllVideoService;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -12,23 +13,15 @@ import java.security.GeneralSecurityException;
 
 @Controller
 public class MyAllVideoController {
-    // You need to set this value for your code to compile.
-    // For example: ... DEVELOPER_KEY = "YOUR ACTUAL KEY";
-    private static final String DEVELOPER_KEY = "AIzaSyB1HxarbXZMw_cCqIQuZqIaGxlrpXkd8j0";
-    private static final String APPLICATION_NAME = "API code samples";
-    private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+    private final MyAllVideoService myAllVideoService;
 
-
-    /**
-     * Build and return an authorized API client service.
-     *
-     * @return an authorized API client service
-     * @throws GeneralSecurityException, IOException
-     */
-    public static YouTube getService() throws GeneralSecurityException, IOException {
-        final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
-        return new YouTube.Builder(httpTransport, JSON_FACTORY, null)
-                .setApplicationName(APPLICATION_NAME)
-                .build();
+    public MyAllVideoController(MyAllVideoService myAllVideoService) {
+        this.myAllVideoService = myAllVideoService;
     }
+
+    public void create()
+            throws GeneralSecurityException, IOException {
+        myAllVideoService.putAllVideo(myAllVideoService.getAllVideo());
+    }
+
 }
