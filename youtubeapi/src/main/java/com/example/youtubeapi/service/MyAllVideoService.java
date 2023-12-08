@@ -1,5 +1,5 @@
 package com.example.youtubeapi.service;
-import com.example.youtubeapi.controller.MyVideoController;
+
 import com.example.youtubeapi.domain.MyVideo;
 import com.example.youtubeapi.repository.YoutubeVideoRepository;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
