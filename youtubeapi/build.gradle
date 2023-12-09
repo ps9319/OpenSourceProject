@@ -23,7 +23,8 @@ dependencies {
 	implementation 'com.google.apis:google-api-services-youtube:v3-rev222-1.25.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'com.googlecode.json-simple:json-simple:1.1.1'
-	implementation 'org.projectlombok:lombok'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('bootBuildImage') {
