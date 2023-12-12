@@ -12,6 +12,7 @@ services:
       - "13333:3306"
     volumes:
       - ./mysql-init.d/:/docker-entrypoint-initdb.d
+      # 아래 두 줄은 내 컴퓨터에 저장하는 코드
       - ./mysql-data:/var/lib/mysql
       - ./mysql-conf.d/:/etc/mysql/my.cnf
   opensource-adminer: # mysql web admin
