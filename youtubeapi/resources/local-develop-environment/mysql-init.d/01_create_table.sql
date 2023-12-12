@@ -1,8 +1,8 @@
 use opensource;
-create table myVideo
+create table my_video
 (
-    myVideo_id    bigint       not null auto_increment,
+    my_video_id    bigint       not null auto_increment,
     created_date  datetime     not null,
-    myVideo_title VARCHAR(255) not null,
+    my_video_title VARCHAR(255) not null,
     primary key (myVideo_id)
 ) engine = InnoDB;

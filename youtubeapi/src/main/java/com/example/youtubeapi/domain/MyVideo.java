@@ -1,14 +1,10 @@
 package com.example.youtubeapi.domain;
 
+import com.example.youtubeapi.common.BaseEntity;
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+
+import lombok.*;
 import lombok.experimental.SuperBuilder;
-import org.springframework.data.annotation.CreatedDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -16,7 +12,7 @@ import org.springframework.data.annotation.CreatedDate;
 @ToString
 @SuperBuilder(toBuilder = true)
 @Entity
-public class MyVideo {
+public class MyVideo extends BaseEntity {
     public static final String ENTITY_PREFIX = "myVideo";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +20,4 @@ public class MyVideo {
     private Long id;
     @Column(name = ENTITY_PREFIX + "_title")
     private String title;
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdDate;
 }
