@@ -5,6 +5,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+resources/local-develop-environment/mysql-data
+
 ### STS ###
 .apt_generated
 .classpath
