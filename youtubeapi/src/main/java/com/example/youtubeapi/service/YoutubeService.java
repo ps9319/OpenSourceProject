@@ -9,21 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-//MyAllVideoService에 의존성 주입하기 위한 Service, Controller 없어도 됨
+
 @Service
 public class YoutubeService {
-    // You need to set this value for your code to compile.
-    // For example: ... DEVELOPER_KEY = "YOUR ACTUAL KEY";
     private static final String DEVELOPER_KEY = "AIzaSyB1HxarbXZMw_cCqIQuZqIaGxlrpXkd8j0";
     private static final String APPLICATION_NAME = "API code samples";
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 
-    /**
-     * Build and return an authorized API client service.
-     *
-     * @return an authorized API client service
-     * @throws GeneralSecurityException, IOException
-     */
     public YouTube getService() throws GeneralSecurityException, IOException {
         final NetHttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
         return new YouTube.Builder(httpTransport, JSON_FACTORY, null)
@@ -31,8 +23,7 @@ public class YoutubeService {
                 .build();
     }
 
-    public String getDeveloperKey(){
+    public String getDeveloperKey() {
         return DEVELOPER_KEY;
     }
-
 }
