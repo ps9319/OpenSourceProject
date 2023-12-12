@@ -23,14 +23,13 @@ dependencies {
     implementation 'com.google.api-client:google-api-client:1.23.0'
     implementation 'com.google.oauth-client:google-oauth-client-jetty:1.23.0'
     implementation 'com.google.apis:google-api-services-youtube:v3-rev222-1.25.0'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'com.googlecode.json-simple:json-simple:1.1.1'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     // database
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'mysql:mysql-connector-java'
+    runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
 tasks.named('bootBuildImage') {
