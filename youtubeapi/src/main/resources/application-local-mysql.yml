@@ -3,7 +3,7 @@ spring:
     activate:
       on-profile: local-mysql
   datasource:
-    url: jdbc:mysql://localhost:13307/opensource?useSSL=false&serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:13333/opensource?useSSL=false&serverTimezone=Asia/Seoul&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
