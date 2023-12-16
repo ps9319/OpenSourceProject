@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDate;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -17,8 +18,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @SuperBuilder(toBuilder = true)
 @Entity
+@Table(name = DayHistory.ENTITY_PREFIX)
 public class DayHistory {
-    public static final String ENTITY_PREFIX = "dayHistory";
+    public static final String ENTITY_PREFIX = "day_history";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = ENTITY_PREFIX + "_id")
