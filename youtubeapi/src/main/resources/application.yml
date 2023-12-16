@@ -3,4 +3,5 @@ spring:
     group:
       local:
         - local-mysql
+        - local-file
     active: local
