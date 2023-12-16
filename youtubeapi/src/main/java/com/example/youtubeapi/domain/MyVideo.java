@@ -12,8 +12,9 @@ import lombok.experimental.SuperBuilder;
 @ToString
 @SuperBuilder(toBuilder = true)
 @Entity
+@Table(name = MyVideo.ENTITY_PREFIX)
 public class MyVideo extends BaseEntity {
-    public static final String ENTITY_PREFIX = "myVideo";
+    public static final String ENTITY_PREFIX = "my_video";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = ENTITY_PREFIX + "_id")
