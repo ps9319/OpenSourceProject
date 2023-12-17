@@ -46,7 +46,7 @@ public class DayHistoryService {
     }
 
     public void getFile(int year, int month, int day) {
-        File file = new File(filePath);
+        File file = new File(filePath + year + month + day + ".txt");
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
